@@ -1,6 +1,8 @@
 package kong.droid.simpledagger2
 
+import dagger.android.AndroidInjection.inject
 import kong.droid.simpledagger2.di.DaggerMainComponent
+import kong.droid.simpledagger2.di.MainClass
 import kong.droid.simpledagger2.di.MainComponent
 import org.junit.Test
 
@@ -19,7 +21,10 @@ class ExampleUnitTest {
 
     @Test
     fun testSimple() {
+        val act = MainClass()
         val component = DaggerMainComponent.create()
-        println(component.getString())
+        component.inject(act)
+        var test = act.getSimple()
+        assertEquals("simple", test)
     }
 }
