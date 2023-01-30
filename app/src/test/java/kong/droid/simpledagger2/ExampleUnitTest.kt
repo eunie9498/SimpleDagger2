@@ -1,5 +1,7 @@
 package kong.droid.simpledagger2
 
+import kong.droid.simpledagger2.di.DaggerMainComponent
+import kong.droid.simpledagger2.di.MainComponent
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -13,5 +15,11 @@ class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
+    }
+
+    @Test
+    fun testSimple() {
+        val component = DaggerMainComponent.create()
+        println(component.getString())
     }
 }
